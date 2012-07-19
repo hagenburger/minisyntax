@@ -1,0 +1,26 @@
+module MiniSyntax
+  module Highlighter
+    module Haml
+      def self.highlight(code)
+        code.gsub! /^( *)(%[a-z\-]+)?(([\.\#][a-z\-_]+)*)((&lt;)?(&gt;)?&?)(=.+?$)?/i do
+          result = $1 || ''
+          tag = $2
+          classes_and_id = $3
+          options = $5
+          ruby = $8
+          result << %Q(<em>#{tag}</em>) if tag
+          result << classes_and_id if classes_and_id
+          result << options if options
+          result << MiniSyntax.highlight(ruby, :ruby) if ruby
+          result
+        end
+        code.gsub! /^(  )*(-.+?)$/ do
+          %Q(#{$1}#{MiniSyntax.highlight($2, :ruby)})
+        end
+        code
+      end
+    end
+  end
+end
+
+MiniSyntax.register(:haml, MiniSyntax::Highlighter::Haml)
