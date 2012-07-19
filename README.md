@@ -1,9 +1,15 @@
-= MiniSyntax
+# MiniSyntax
 
-A simple and powerful syntax highlighter for Ruby.
+A simple and powerful syntax highlighter for Ruby. It uses `<em>`, `<b>`, `<q>`, … instead of `<span class="keyword">` to reduce the HTML output. It preferes to keep it simple over having a color for every detail of a language as its major usecase is enhancing blog posts.
+
+Have a look at those blog posts and inspect the HTML of the source code sections:
+
+* <http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html>
+* <http://www.hagenburger.net/BLOG/3d-Github-badge-with-pure-CSS3.html>
+* <http://www.hagenburger.net/BLOG/Simple-HTML5-Fix-for-IE.html>
 
 
-== Supported Languages
+## Supported Languages
 
 * command_line
 * css
@@ -16,8 +22,8 @@ A simple and powerful syntax highlighter for Ruby.
 * yaml
 
 
-== Contributing to MiniSyntax
- 
+## Contributing to MiniSyntax
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -27,7 +33,7 @@ A simple and powerful syntax highlighter for Ruby.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 
-== Copyright
+## Copyright
 
 Copyright (c) 2010 [Nico Hagenburger](http://www.hagenburger.net). See MIT-LICENSE.txt for
 further details.
