@@ -74,14 +74,17 @@ module MiniSyntax
         keywords << %w(silent x-soft soft medium loud x-loud)
         keywords << %w(normal pre nowrap pre-wrap pre-line)
         keywords << %w(maroon red yellow olive purple fuchsia white lime green navy blue aqua teal black silver gray orange)
-        code.gsub! /\b#{keywords.join('|')}\b/, "<b>\\0</b>"
         code.gsub! /\$[a-z\-_]+/, "<var>\\0</var>"
+        code.gsub! /\b#{keywords.join('|')}\b/, "<b>\\0</b>"
         code.gsub! /("|')(.*?)\1/ do |q|
           q.gsub! %r(<(b|i|em|var)>(.*?)</\1>), "\\2"
           q.gsub!(/#\{(.*?)\}/) do
             %Q(<code>\#{#{highlight_value($1)}}</code>)
           end
           %Q(<q>#{q}</q>)
+        end
+        code.gsub! %r(<var>(.+?)</var>) do |var|
+          "<var>#{var.gsub(%r(</?[a-z]+>), '')}</var>"
         end
         code
       end
