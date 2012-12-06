@@ -2,18 +2,18 @@ module MiniSyntax
   module Version
     MAJOR = 0
     MINOR = 1
-    PATCH = 0
+    PATCH = 1
     BUILD = ''
 
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
   end
-  
+
   @@languages = {}
-  
+
   def self.register(lang, lang_module)
     @@languages[lang] = lang_module
   end
-  
+
   def self.highlight(code, lang)
     if highlighter = @@languages[lang.to_sym]
       highlighter.highlight(code)
