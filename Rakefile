@@ -13,7 +13,7 @@ require 'jeweler'
 $: << File.join(File.dirname(__FILE__), 'lib')
 require 'minisyntax'
 Jeweler::Tasks.new do |gem|
-  gem.version = '0.1.0'
+  gem.version = MiniSyntax::Version::STRING
   gem.name = "minisyntax"
   gem.homepage = "http://github.com/hagenburger/minisyntax"
   gem.license = "MIT"
