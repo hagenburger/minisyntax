@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{minisyntax}
+  s.name = "minisyntax"
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nico Hagenburger"]
-  s.date = %q{2010-12-30}
-  s.description = %q{A simple powerful syntax highlighter with minimal HTML output}
-  s.email = %q{nico@hagenburger.net}
+  s.date = "2012-12-06"
+  s.description = "A simple powerful syntax highlighter with minimal HTML output"
+  s.email = "nico@hagenburger.net"
   s.extra_rdoc_files = [
     "README.md"
   ]
@@ -19,23 +19,38 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
+    "MIT-LICENSE.txt",
+    "README.md",
     "Rakefile",
     "lib/minisyntax.rb",
+    "lib/minisyntax/highlighter.rb",
+    "lib/minisyntax/highlighter/bash.rb",
+    "lib/minisyntax/highlighter/command_line.rb",
+    "lib/minisyntax/highlighter/css.rb",
+    "lib/minisyntax/highlighter/erb.rb",
+    "lib/minisyntax/highlighter/haml.rb",
+    "lib/minisyntax/highlighter/html.rb",
+    "lib/minisyntax/highlighter/javascript.rb",
+    "lib/minisyntax/highlighter/php.rb",
+    "lib/minisyntax/highlighter/ruby.rb",
+    "lib/minisyntax/highlighter/yaml.rb",
+    "lib/minisyntax/integration/rack.rb",
+    "minisyntax.gemspec",
     "spec/minisyntax_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/hagenburger/minisyntax}
+  s.homepage = "http://github.com/hagenburger/minisyntax"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{A simple powerful syntax highlighter with minimal HTML output}
+  s.rubygems_version = "1.8.10"
+  s.summary = "A simple powerful syntax highlighter with minimal HTML output"
   s.test_files = [
     "spec/minisyntax_spec.rb",
     "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
