@@ -2,7 +2,7 @@ module MiniSyntax
   module Highlighter
     module CSS
       def self.highlight(code)
-        code.gsub! %r(( *)((\$[a-z\-_]+):(.+?);|([_\*]?[a-z\-]+:)(("|[^&])+?);|@import (.+?);|(([\.\#]?[a-z0-9\-_&:]+([,\s]\s*[\.\#]?[a-z0-9\-_&:]+)*))(\s*)\{(.*?\n\1)\})|@media (.+?)\{|@(include|extend) (.+?);)im do
+        code.gsub! %r(( *)((\$[a-z\-_]+):(.+?);|([_\*]?[a-z\-]+:)(("|[^&])+?);|@import (.+?);|(([\.\#]?[a-z0-9\-_&:]+([,\s]\s*[\.\#]?[a-z0-9\-_&:]+)*))(\s*)\{(.*?\n\1)\})|@media (.+?)\{|@include (.+?);|@extend (.+?);)im do
           intendation = $1
           if $3
             %Q(#{intendation}<var>#{$3}</var>:#{highlight_value($4)};)
@@ -27,11 +27,14 @@ module MiniSyntax
           elsif $14
             %Q(#{intendation}@<em>media</em> #{$14.gsub('and', '<em>and</em>')}{)
           elsif $15
-            keyword = $15
-            call = $16
-            rule = call.gsub(/^([\.#]?[a-z\-_]+).*$/, '<b>\\1</b>')
+            call = $15
+            mixin = call.gsub(/^([a-z\-_]+).*$/, '<b>\\1</b>')
             parameter = call.gsub(/^.*?\((.+?)\)/) { "(#{highlight_value($1)})" }
-            %Q(#{intendation}@<em>#{keyword}</em> #{rule}#{parameter};)
+            %Q(#{intendation}@<em>include</em> #{mixin}#{parameter};)
+          elsif $16
+            call = $16
+            rule = call.gsub(/^([\.#%]?[a-z\-_]+).*$/, '<b>\\1</b>')
+            %Q(#{intendation}@<em>extend</em> #{rule};)
           end
         end
         code.gsub! %r((<i>)?(//.*?$|/\*.*?\*/)) do
