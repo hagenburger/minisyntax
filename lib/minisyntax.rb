@@ -29,7 +29,3 @@ module MiniSyntax
 end
 
 require 'minisyntax/highlighter'
-
-if defined? Rack
-  require 'minisyntax/integration/rack'
-end
