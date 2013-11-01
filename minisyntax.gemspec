@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "minisyntax"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nico Hagenburger"]
-  s.date = "2013-02-20"
+  s.date = "2013-11-01"
   s.description = "A simple powerful syntax highlighter with minimal HTML output"
   s.email = "nico@hagenburger.net"
   s.extra_rdoc_files = [
