@@ -34,7 +34,7 @@ module MiniSyntax
           end
         end
         code.gsub!('<i><i>', '<i>')
-        "hallo" +code
+        code
       end
     end
   end

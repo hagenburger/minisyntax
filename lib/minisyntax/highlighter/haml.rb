@@ -9,13 +9,13 @@ module MiniSyntax
           options = $5
           ruby = $8
           result << %Q(<em>#{tag}</em>) if tag
-          result << classes_and_id if classes_and_id
+          result << %Q(<b>#{classes_and_id}</b>) unless classes_and_id.blank?
           result << options if options
           result << MiniSyntax.highlight(ruby, :ruby) if ruby
           result
         end
-        code.gsub! /^(  )*(-.+?)$/ do
-          %Q(#{$1}#{MiniSyntax.highlight($2, :ruby)})
+        code.gsub! /^((  )*)(-(.+?))$/ do
+          %Q(#{$1}-#{MiniSyntax.highlight($4, :ruby)})
         end
         code
       end
