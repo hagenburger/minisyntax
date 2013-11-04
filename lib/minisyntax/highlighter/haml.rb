@@ -2,7 +2,7 @@ module MiniSyntax
   module Highlighter
     module Haml
       def self.highlight(code)
-        code.gsub! /^( *)(%[a-z\-]+)?(([\.\#][a-z\-_]+)*)((&lt;)?(&gt;)?&?)(=.+?$)?/i do
+        code.gsub! /^( *)(%[a-z1-9\-]+)?(([\.\#][a-z\-_]+)*)((&lt;)?(&gt;)?&?)(=.+?$)?/i do
           result = $1 || ''
           tag = $2
           classes_and_id = $3
