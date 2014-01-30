@@ -9,7 +9,7 @@ module MiniSyntax
           options = $5
           ruby = $8
           result << %Q(<em>#{tag}</em>) if tag
-          result << %Q(<b>#{classes_and_id}</b>) unless classes_and_id.blank?
+          result << %Q(<b>#{classes_and_id}</b>) unless classes_and_id.empty?
           result << options if options
           result << MiniSyntax.highlight(ruby, :ruby) if ruby
           result
