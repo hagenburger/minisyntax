@@ -18,7 +18,7 @@ module MiniSyntax
           %Q(<b>&lt;<em>#{tag}</em></b>#{attributes}<b>#{xml_close_tag}&gt;</b>)
         end
         code.gsub! %r(&lt;/([a-z\-]+[1-6]?)&gt;) do
-          %Q(<b>&lt;/<em>#{$1}</em>&gt</b>)
+          %Q(<b>&lt;/<em>#{$1}</em>&gt;</b>)
         end
         code
       end
